@@ -2,7 +2,7 @@
 pragma solidity ^0.8.30;
 
 /// @notice Deploy contracts that initializes via an array mapping uint to address.
-interface IUintToAddressCloner {
+interface IUintToAddressMaker {
     /// @notice Map a chainId to a local address.
     struct KeyValue {
         uint256 key;
