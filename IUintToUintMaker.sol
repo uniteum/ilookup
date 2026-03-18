@@ -25,5 +25,5 @@ interface IUintToUintMaker {
     event Made(address indexed home, bytes32 indexed salt);
 
     /// @notice Revert if someone tries to reinitialize an instance.
-    error MadeAlready();
+    error Unauthorized();
 }
