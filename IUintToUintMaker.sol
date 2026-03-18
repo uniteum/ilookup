@@ -12,13 +12,13 @@ interface IUintToUintMaker {
     /// @notice Predict the address of a lookup.
     /// @param keyValues The array of key value pairs sorted by key.
     /// @return exists Whether the lookup already exists.
-    /// @return home The predicted address of the contract.
-    /// @return salt The salt used to create the clone. salt = keccak256(abi.encode(kvs));
+    /// @return home The predicted address of the lookup.
+    /// @return salt The salt used to create the lookup. salt = keccak256(abi.encode(keyValues));
     function made(KeyValue[] memory keyValues) external view returns (bool exists, address home, bytes32 salt);
 
     /// @notice Create a lookup if it doesn't already exist.
     /// @param keyValues The array of key value pairs sorted by key.
-    /// @return home The deployed address of the mapping.
+    /// @return home The address of the new or existing lookup.
     function make(KeyValue[] memory keyValues) external returns (address home);
 
     /// @notice Emit when a lookup is made.
