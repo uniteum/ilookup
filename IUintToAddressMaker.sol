@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.30;
 
-/// @notice Deploy a lookup contract from an array mapping uint to address.
+/// @notice Make a lookup mapping uint256 to address.
 interface IUintToAddressMaker {
     /// @notice Map a key to a value.
     struct KeyValue {
@@ -21,9 +21,7 @@ interface IUintToAddressMaker {
     /// @return home The address of the new or existing lookup.
     function make(KeyValue[] memory keyValues) external returns (address home);
 
-    /// @notice Emit when a lookup is created.
-    /// @return home The address of the new lookup.
-    /// @return salt The salt used to create the lookup. salt = keccak256(abi.encode(keyValues));
+    /// @notice Emit when a lookup is made.
     event Made(address indexed home, bytes32 indexed salt);
 
     /// @notice Revert if someone tries to reinitialize an instance.

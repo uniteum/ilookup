@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.30;
 
-/// @notice Map uint256 to address.
+/// @notice Mapping from uint256 to address.
 interface IUintToAddress {
     /// @return total number of keys in the map.
     function keyCount() external view returns (uint256);
