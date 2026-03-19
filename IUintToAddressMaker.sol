@@ -1,8 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.30;
 
+import {IMaker} from "./IMaker.sol";
+
 /// @notice Make a lookup mapping uint256 to address.
-interface IUintToAddressMaker {
+interface IUintToAddressMaker is IMaker {
     /// @notice Map a key to a value.
     struct KeyValue {
         uint256 key;
@@ -20,10 +22,4 @@ interface IUintToAddressMaker {
     /// @param keyValues The array of key value pairs sorted by key.
     /// @return home The address of the new or existing lookup.
     function make(KeyValue[] memory keyValues) external returns (address home);
-
-    /// @notice Emit when a lookup is made.
-    event Made(address indexed home, bytes32 indexed salt);
-
-    /// @notice Revert if someone tries to reinitialize an instance.
-    error Unauthorized();
 }
