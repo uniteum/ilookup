@@ -1,12 +1,10 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.30;
-
-import {IMaker} from "./IMaker.sol";
+pragma solidity ^0.8.34;
 
 /**
  *  @notice Make a lookup mapping uint256 to uint256.
  */
-interface IUintToUintMaker is IMaker {
+interface IUintToUintMaker {
     /**
      * @notice Map a key to a value.
      */
