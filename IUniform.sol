@@ -4,7 +4,6 @@ pragma solidity ^0.8.34;
 import {IAddressLookup} from "./IAddressLookup.sol";
 
 /**
- * @title IUniform — Uniform factory interface
  * @notice Factory pattern for deploying deterministic instances keyed by locale.
  */
 interface IUniform {
@@ -12,13 +11,13 @@ interface IUniform {
      * @notice Checks whether an instance for the given locale has already been exists.
      * @param locale The locale lookup that resolves a chain-specific address.
      * @return exists `true` if the instance already exists.
-     * @return home    The deterministic address of the instance.
-     * @return salt    The CREATE2 salt derived from the locale.
+     * @return home The deterministic address of the instance.
+     * @return salt The CREATE2 salt derived from the locale.
      */
     function made(IAddressLookup locale) external view returns (bool exists, address home, bytes32 salt);
 
     /**
-     * @notice Deploys a new instance for the given locale (or returns the existing one).
+     * @notice Deploys a new instance for the given locale or returns the existing one.
      * @param locale The locale lookup that resolves a chain-specific address.
      * @return instance The address of the (possibly pre-existing) instance.
      */

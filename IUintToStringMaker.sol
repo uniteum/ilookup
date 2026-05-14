@@ -2,7 +2,7 @@
 pragma solidity ^0.8.34;
 
 /**
- *  @notice Make a lookup mapping uint256 to string.
+ * @notice Make a lookup mapping uint256 to string.
  */
 interface IUintToStringMaker {
     /**
@@ -19,7 +19,7 @@ interface IUintToStringMaker {
      * @param variant Discriminator allowing distinct addresses for the same entries.
      * @return exists Whether the lookup already exists.
      * @return home The predicted address of the lookup.
-     * @return salt The salt used to create the lookup. salt = keccak256(abi.encode(entries, variant));
+     * @return salt The salt used to create the lookup.
      */
     function made(Entry[] memory entries, uint256 variant)
         external

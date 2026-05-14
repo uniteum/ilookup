@@ -2,7 +2,7 @@
 pragma solidity ^0.8.34;
 
 /**
- *  @notice Mapping from uint256 to uint256.
+ * @notice Mapping from uint256 to uint256.
  */
 interface IUintToUint {
     /**
