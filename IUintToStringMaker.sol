@@ -15,22 +15,22 @@ interface IUintToStringMaker {
 
     /**
      * @notice Predict the address of a lookup.
-     * @param keyValues The array of key value pairs sorted by key.
-     * @param variant Discriminator allowing distinct addresses for the same keyValues.
+     * @param entries The array of key value pairs sorted by key.
+     * @param variant Discriminator allowing distinct addresses for the same entries.
      * @return exists Whether the lookup already exists.
      * @return home The predicted address of the lookup.
-     * @return salt The salt used to create the lookup. salt = keccak256(abi.encode(keyValues, variant));
+     * @return salt The salt used to create the lookup. salt = keccak256(abi.encode(entries, variant));
      */
-    function made(KeyValue[] memory keyValues, uint256 variant)
+    function made(KeyValue[] memory entries, uint256 variant)
         external
         view
         returns (bool exists, address home, bytes32 salt);
 
     /**
      * @notice Create a lookup if it doesn't already exist.
-     * @param keyValues The array of key value pairs sorted by key.
-     * @param variant Discriminator allowing distinct addresses for the same keyValues.
+     * @param entries The array of key value pairs sorted by key.
+     * @param variant Discriminator allowing distinct addresses for the same entries.
      * @return home The address of the new or existing lookup.
      */
-    function make(KeyValue[] memory keyValues, uint256 variant) external returns (address home);
+    function make(KeyValue[] memory entries, uint256 variant) external returns (address home);
 }
