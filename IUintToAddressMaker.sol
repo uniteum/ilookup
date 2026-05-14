@@ -8,7 +8,7 @@ interface IUintToAddressMaker {
     /**
      * @notice Map a key to a value.
      */
-    struct KeyValue {
+    struct Entry {
         uint256 key;
         address value;
     }
@@ -21,7 +21,7 @@ interface IUintToAddressMaker {
      * @return home The predicted address of the lookup.
      * @return salt The salt used to create the lookup. salt = keccak256(abi.encode(entries, variant));
      */
-    function made(KeyValue[] memory entries, uint256 variant)
+    function made(Entry[] memory entries, uint256 variant)
         external
         view
         returns (bool exists, address home, bytes32 salt);
@@ -32,5 +32,5 @@ interface IUintToAddressMaker {
      * @param variant Discriminator allowing distinct addresses for the same entries.
      * @return home The address of the new or existing lookup.
      */
-    function make(KeyValue[] memory entries, uint256 variant) external returns (address home);
+    function make(Entry[] memory entries, uint256 variant) external returns (address home);
 }
